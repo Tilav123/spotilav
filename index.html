@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="titul">Spotify</title>
+    <link rel="icon" href="./img/Spotify icon.png">
+    <link href="https://fonts.cdnfonts.com/css/circular-std" rel="stylesheet">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="" id="if">
+    <link rel="stylesheet" href="./style/media.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- START -->
+    <div class="black-block" style="display: none;"></div>
+    <div class="modal-create-playlist" style="display: none;">
+        <h2 class="h-modal">Playlist Creation</h2>
+        <div class="mod-flex">
+            <form class="pol1">
+                <img src="./img/nota-create.png" class="create-img" id="output">
+                <div class="karandash">
+                    <input type="file" id="myFile" name="filename">
+                </div>
+            </form>
+            <form class="pol2">
+                <input type="text" class="modal-create-inp nam-pl" min="2" max="15" required
+                    placeholder="Playlist name">
+                <textarea placeholder="Descraption" cols="30" min="2" rows="10" class="modal-create-inp2"></textarea>
+                <button class="btn-m">CREATE</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal-accounts" style="display: none;">
+        <h2 class="h-modal">Profile data</h2>
+        <div class="mod-flex">
+            <form class="pol1">
+                <img src="./img/3669480_account_circle_ic_icon.png" class="create-img" id="output2">
+                <div class="karandash">
+                    <input type="file" id="myFile" style="outline: none;" name="filename" class="fli">
+                </div>
+            </form>
+            <div class="pol2">
+                <input type="text" class="modal-create-inp nam-pl2" min="2" max="15" required placeholder="Name">
+                <input type="text" class="modal-create-inp pass-pl2" min="2" max="15" required placeholder="Password">
+                <button class="btn-m" id="save">SAVE</button>
+                <button class="btn-m out" id="out">LOG OUT</button>
+            </div>
+        </div>
+    </div>
+    <div class="container content">
+        <aside class="aside-left">
+            <div class="help-block homs">
+                <img src="./img/White icon home.png" class="help-image">
+                <p class="help-name">Home</p>
+            </div>
+            <div class="help-block op searchs">
+                <img src="./img/icon searches gray.png" class="help-image">
+                <p class="help-name">Search</p>
+            </div>
+            <div class="help-block op librarys">
+                <img src="./img/Library_S.png" class="help-image">
+                <p class="help-name">Your Library</p>
+            </div>
+            <div class="help-block op creater" style="margin-top: 49px;">
+                <img src="./img/icon create playlists.png" class="help-image">
+                <p class="help-name">Create Playlist</p>
+            </div>
+            <div class="help-block lik">
+                <img src="./img/Liked Songs_S.png" class="help-image">
+                <p class="help-name">Liked Songs</p>
+            </div>
+            <hr class="hr">
+            <span id="your-playltsts"></span>
+        </aside>
+        <div class="content-center">
+            <!-- 1 -->
+            <header style="position: relative;">
+                <div class="head1">
+                    <div class="strela"></div>
+                    <div class="strela forth"></div>
+                    <label for="inp-s" class="search-label" style="display: none;">
+                        <img src="./img/top-search-icon.png" class="icon">
+                        <input type="text" class="inp_search" id="inp-s" maxlength="100"
+                            placeholder="Artists, songs, or podcasts">
+                        <div class="cross-input" style="display: none;"></div>
+                    </label>
+                </div>
+                <a class="account" id="a" href="./registor.html" style="position: relative;">
+                    <img src="./img/3669480_account_circle_ic_icon.png" class="image-account">
+                    <p class="name-account">account</p>
+                    <img src="./img/polygon.png" class="polygon" style="opacity: 0%;">
+                </a>
+            </header>
+            <div class="rider" style="display: none;">
+                <h1 class="title_playlists adaty">Search</h1>
+                <div class="mob-s">
+                    <label class="searches-label">
+                        <img src="./img/top-search-icon.png" id="icona-s">
+                        <input type="text" id="dop-input" placeholder="Artists, songs, or podcasts">
+                    </label>
+                </div>
+            </div>
+            <div class="one-page">
+                <div class="Home">
+                    <!-- 2 -->
+                    <span id="good-text">
+                        <h1 class="good-text">Good afternoon</h1>
+                        <div id="topis">
+                            <img src="https://static.thenounproject.com/png/389348-200.png" class="image-topic ic">
+                            <img src="./img/Setting-icon.svg" class="image-topic setting">
+                        </div>
+                    </span>
+                    <div class="hello-box">
+                        <!--  -->
+                        <div class="hi page-2-playlists">
+                            <img src="./img/Liked Songs_S.png" class="image-playlists">
+                            <span class="link"></span>
+                            <p class="name-playlists">Name playlist</p>
+                            <div class="btn_play adaptiv-900">
+                                <input type="radio" name="radio" id="radio" class="radio">
+                                <label for="radio" class="play"></label>
+                            </div>
+                        </div>
+                        <div class="hi page-2-playlists">
+                            <img src="./img/Liked Songs_S.png" class="image-playlists">
+                            <span class="link"></span>
+                            <p class="name-playlists">Name playlist</p>
+                            <div class="btn_play adaptiv-900">
+                                <input type="radio" name="radio" id="radio" class="radio">
+                                <label for="radio" class="play"></label>
+                            </div>
+                        </div>
+                        <!--  -->
+                        <div class="hi page-2-playlists">
+                            <img src="./img/Liked Songs_S.png" class="image-playlists">
+                            <span class="link"></span>
+                            <p class="name-playlists">Name playlist</p>
+                            <div class="btn_play adaptiv-900">
+                                <input type="radio" name="radio" id="radio" class="radio">
+                                <label for="radio" class="play"></label>
+                            </div>
+                        </div>
+                        <div class="hi page-2-playlists">
+                            <img src="./img/Liked Songs_S.png" class="image-playlists">
+                            <span class="link"></span>
+                            <p class="name-playlists">Name playlist</p>
+                            <div class="btn_play adaptiv-900">
+                                <input type="radio" name="radio" id="radio" class="radio">
+                                <label for="radio" class="play"></label>
+                            </div>
+                        </div>
+                        <!--  -->
+                        <div class="hi page-2-playlists">
+                            <img src="./img/Liked Songs_S.png" class="image-playlists">
+                            <span class="link"></span>
+                            <p class="name-playlists">Name playlist</p>
+                            <div class="btn_play adaptiv-900">
+                                <input type="radio" name="radio" id="radio" class="radio">
+                                <label for="radio" class="play"></label>
+                            </div>
+                        </div>
+                        <div class="hi page-2-playlists">
+                            <img src="./img/Liked Songs_S.png" class="image-playlists">
+                            <span class="link"></span>
+                            <p class="name-playlists">Name playlist</p>
+                            <div class="btn_play adaptiv-900">
+                                <input type="radio" name="radio" id="radio" class="radio">
+                                <label for="radio" class="play"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="middle">
+                        <h2 class="title_playlists" id="yout">Made for you</h2>
+                        <div class="wrapper">
+                            <div class="carousel made_for_you"></div>
+                        </div>
+                        <h2 class="title_playlists">Your top mixes</h2>
+                        <div class="wrapper">
+                            <div class="carousel top_mix"></div>
+                        </div>
+                        <h2 class="title_playlists">Playlists of gaming</h2>
+                        <div class="wrapper">
+                            <div class="carousel russian"></div>
+                        </div>
+                    </div>
+                    <div class="Home-after"></div>
+                </div>
+                <div class="Search-home" style="display: none;">
+                    <h1 class="text-browse">Browse all</h1>
+                    <div class="categories-block"></div>
+                </div>
+                <div class="home-search" style="display: none;">
+                    <div class="khuk">
+                        <div class="top-seacrh-categories">
+                            <button class="top-btn-search top-btn-search_focus">All</button>
+                            <button class="top-btn-search">Playlists</button>
+                            <button class="top-btn-search">Albums</button>
+                            <button class="top-btn-search">Songs</button>
+                            <button class="top-btn-search">Artists</button>
+                        </div>
+                    </div>
+                    <div class="all-s">
+                        <div class="topic">
+                            <div class="top-results">
+                                <h2 class="h2">Top result</h2>
+                                <div class="block-append ttt S">
+                                    <img src="" class="cover">
+                                    <h2 class="h2 nmae-track-all">Name track</h2>
+                                    <button class="block-all-append">Songs</button>
+                                </div>
+                            </div>
+                            <div class="songs-all">
+                                <h2 class="h2 adaptiv-920">Songs</h2>
+                                <div class="block-append">
+                                    <div class="item-child chilt">
+                                        <div class="block-items">
+                                            <img src="" class="track-image-item">
+                                            <div class="text-item">
+                                                <p class="name-track-items">Name track</p>
+                                                <p class="name-artists-items arts">Name artist</p>
+                                            </div>
+                                        </div>
+                                        <div class="block-it">
+                                            <div class="timing">
+                                                <img src="./img/no-green-heart.png" class="heart-track icon"
+                                                    style="opacity: 0%;">
+                                                <p class="text-timing name-artists-items">
+                                                    <span class="minutes">0:</span><span class="secundes">00</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-child chilt">
+                                        <div class="block-items">
+                                            <img src="" class="track-image-item">
+                                            <div class="text-item">
+                                                <p class="name-track-items">Name track</p>
+                                                <p class="name-artists-items arts">Name artist</p>
+                                            </div>
+                                        </div>
+                                        <div class="block-it">
+                                            <div class="timing">
+                                                <img src="./img/no-green-heart.png" class="heart-track icon"
+                                                    style="opacity: 0%;">
+                                                <p class="text-timing name-artists-items">
+                                                    <span class="minutes">0:</span><span class="secundes">00</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-child chilt">
+                                        <div class="block-items">
+                                            <img src="" class="track-image-item">
+                                            <div class="text-item">
+                                                <p class="name-track-items">Name track</p>
+                                                <p class="name-artists-items arts">Name artist</p>
+                                            </div>
+                                        </div>
+                                        <div class="block-it">
+                                            <div class="timing">
+                                                <img src="./img/no-green-heart.png" class="heart-track icon"
+                                                    style="opacity: 0%;">
+                                                <p class="text-timing name-artists-items">
+                                                    <span class="minutes">0:</span><span class="secundes">00</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-child chilt">
+                                        <div class="block-items">
+                                            <img src="" class="track-image-item">
+                                            <div class="text-item">
+                                                <p class="name-track-items">Name track</p>
+                                                <p class="name-artists-items arts">Name artist</p>
+                                            </div>
+                                        </div>
+                                        <div class="block-it">
+                                            <div class="timing">
+                                                <img src="./img/no-green-heart.png" class="heart-track icon"
+                                                    style="opacity: 0%;">
+                                                <p class="text-timing name-artists-items">
+                                                    <span class="minutes">0:</span><span class="secundes">00</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--  -->
+                        <h2 class="title_playlists">Playlists</h2>
+                        <div class="wrapper">
+                            <div class="carousel search-playlists"></div>
+                        </div>
+                        <h2 class="title_playlists">Artists</h2>
+                        <div class="wrapper">
+                            <div class="carousel search-artists"></div>
+                        </div>
+                    </div>
+                    <div class="playlists-s blocks-append-categ" style="display: none;"></div>
+                    <div class="albums-s blocks-append-categ" style="display: none;"></div>
+                    <div class="songs-s" style="display: none;">
+                        <div class="top_opisanye">
+                            <div class="child1">
+                                <p class="h-text">TITLE</p>
+                            </div>
+                            <div class="child2">
+                                <p class="h-text">ALBUM</p>
+                            </div>
+                            <div class="child3">
+                                <p class="h-text">DATE ADDED</p>
+                            </div>
+                            <div class="child4">
+                                <span></span>
+                                <img src="./img/Clock_XS.png" class="hronos-icon">
+                            </div>
+                        </div>
+                        <div class="parent-songs"></div>
+                    </div>
+                    <div class="artists-s blocks-append-categ" style="display: none;"></div>
+                    <div class="artists-s2" style="display: none;"></div>
+                </div>
+                <!--  -->
+                <div class="library" style="display: none;">
+                    <div class="telefon-library">
+                        <div class="hid">
+                            <img class="liso_ar2" style="height: 45px; border-radius: 50%; width: 45px;"
+                                src="./img/User Plus_S.png">
+                            <h1 style="color: white;">Library</h1>
+                        </div>
+                        <div class="help-block" id="liked-2">
+                            <img src="./img/Screenshot 2022-06-04 at 20 1.png" class="help-image">
+                            <p class="help-name spas">Liked Songs</p>
+                        </div>
+                        <div class="help-block creater2">
+                            <img src="./img/9041220_plus_square_fill_icon.png"
+                                style="background-color: white; border-radius: 50%; filter: invert(11%);"
+                                class="help-image">
+                            <p class="help-name spas">Create Playlist</p>
+                        </div>
+                    </div>
+                    <p class="text-lab">Library</p>
+                    <div class="lab">
+                        <div class="block-2-page-l liked-2-page" style="display: none;">
+                            <p class="top-song-l" id="song-liked">Name songs <span style="opacity: 0.5;">• Artist</span>
+                            </p>
+                            <h1 class="l-text">Liked songs</h1>
+                            <p class="top-song-l2"> <span id="kol-vo_like">0</span> Liked songs</p>
+                        </div>
+                        <div class="block-2-page-l recently-2-page" style="display: none;">
+                            <p class="top-song-l" id="song-recently">Name songs <span style="opacity: 0.5;">•
+                                    Artist</span></p>
+                            <h1 class="l-text">Recently songs</h1>
+                            <p class="top-song-l2"> <span id="kol-vo_res">0</span> Recently songs</p>
+                        </div>
+                        <div class="block-2-page-l download-2-page" style="display: none;">
+                            <p class="top-song-l" id="song-download">Name songs <span style="opacity: 0.5;">•
+                                    Artist</span></p>
+                            <h1 class="l-text">Download songs</h1>
+                            <p class="top-song-l2"> <span id="kol-vo_down">0</span> Download songs</p>
+                        </div>
+                        <div class="block-library-k like-k"></div>
+                        <div class="block-library-k recently-k"></div>
+                        <div class="block-library-k download-k"></div>
+                    </div>
+                    <p class="text-lab" style="display: none;" id="text-like-playlist">Playlists</p>
+                    <div class="blocks-append-categ playlist-let" style="padding: 0;"></div>
+                </div>
+                <!--  -->
+            </div>
+            <!--  -->
+            <div class="two-page" style="display: none;">
+                <div class="nezaed"></div>
+                <div class="two-page-top-block">
+                    <img src="" class="image-2-page">
+                    <div class="info-text-2-page">
+                        <p class="text-16 two-page-cat"></p>
+                        <p class="text-122 name-2-page"></p>
+                        <p class="text-20 artists-2-page opisaniye" style="color: rgba(255, 255, 255, 0.7);">The hits of
+                            tomorrow are on Spotify today.</p>
+                        <p class="text-18 for-2-page" style="color: rgba(255, 255, 255, 0.7);">Made for <span
+                                style="color: white;" id="you">you </span>• <span id="length-songs">0</span> songs,
+                            <span id="length-hr">0</span>hr <span id="length-min">00</span> min
+                        </p>
+                    </div>
+                    <div class="aftor" style="background-image: linear-gradient(180deg, #121212, #121212);">
+                    </div>
+                </div>
+                <div class="tracki">
+                    <div class="nemnogo">
+                        <div class="left-ne">
+                            <div class="played-btn"></div>
+                            <img src="./img/no-green-heart.png" class="icon-52">
+                            <img src="./img/Download_XS.png" class="icon-52" style="display: none;">
+                            <img src="./img/Options_XS.png" class="icon-44">
+                        </div>
+                        <span id="right-ne">
+                            <input type="text" class="inp-2-page" placeholder="Songs search">
+                            <div class="after-iamge"></div>
+                        </span>
+                        <!--  -->
+                    </div>
+                    <!--  -->
+                    <div class="top_opisanye">
+                        <div class="child1">
+                            <p class="h-text">TITLE</p>
+                        </div>
+                        <div class="child2">
+                            <p class="h-text">ALBUM</p>
+                        </div>
+                        <div class="child3">
+                            <p class="h-text">DATE ADDED</p>
+                        </div>
+                        <div class="child4">
+                            <span></span>
+                            <img src="./img/Clock_XS.png" class="hronos-icon">
+                        </div>
+                    </div>
+                    <div class="page-2-songs-parent"></div>
+                    <!-- <hr class="hrd"> -->
+                    <div class="my-playlist-2-page" style="display: none;">
+                        <h1 class="find-text">Let's find songs for your playlist</h1>
+                        <input type="text" id="inp_my" placeholder="Track Search">
+                        <span id="for-playlist"></span>
+                    </div>
+                    <!--  -->
+                </div>
+                <div class="tracki" id="t2" style="display: none;"></div>
+            </div>
+        </div>
+        <aside class="aside-right">
+            <!--  -->
+            <div class="as-right-top">
+                <p class="as-right-text">Friend Activity</p>
+                <div class="aside-right-top-icon friend_dop"></div>
+                <div class="aside-right-top-icon right-cross"></div>
+            </div>
+            <p class="let-friends-text">
+                Let friends and followers on Spotify see what you’re listening to.
+            </p>
+            <div class="friends-block">
+                <!-- 1 -->
+                <div class="frier-block">
+                    <div class="frier"></div>
+                    <div class="fri">
+                        <div class="fir fr1"></div>
+                        <div class="fir fr2"></div>
+                        <div class="fir fr2"></div>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="frier-block">
+                    <div class="frier"></div>
+                    <div class="fri">
+                        <div class="fir fr1"></div>
+                        <div class="fir fr2"></div>
+                        <div class="fir fr2"></div>
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div class="frier-block">
+                    <div class="frier"></div>
+                    <div class="fri">
+                        <div class="fir fr1"></div>
+                        <div class="fir fr2"></div>
+                        <div class="fir fr2"></div>
+                    </div>
+                </div>
+                <!--  -->
+            </div>
+            <p class="let-friends-text">
+                Go to Settings > Social and enable “Share my listening activity on Spotify.’ You can turn this off at
+                any time.
+            </p>
+            <button class="right-button">SETTINGS</button>
+            <!--  -->
+        </aside>
+        <!--  -->
+    </div>
+
+    <div class="player minus">
+        <div class="player-container">
+            <!-- 1 -->
+            <div class="player-block-1">
+                <img src="" class="player-image" id="pl_img"></img>
+                <div class="player-text-block">
+                    <marquee behavior="0.1s" direction="" class="name-tracks">Name track</marquee>
+                    <p class="name-artists artsist">Name artists</p>
+                </div>
+                <div class="player-heart"></div>
+            </div>
+            <div class="player-block-2">
+                <div class="control-block">
+                    <div class="icon btn-random"></div>
+                    <div class="icon back-end"></div>
+                    <div class="play-controller audition"></div>
+                    <div class="icon forward"></div>
+                    <div class="icon loop"></div>
+                </div>
+                <div class="range-duration-block">
+                    <p class="duration-text"><span class="min-left">0:</span><span class="current">00</span></p>
+                    <div class="ranage">
+                        <div class="range-track"></div>
+                        <input type="range" id="range-duration" value="0" min="0" max="100" class="range">
+                    </div>
+                    <p class="duration-text"><span class="min-right">0:</span><span class="end">00</span></p>
+                </div>
+            </div>
+            <div class="player-block-3">
+                <div class="icon download-tracks"></div>
+                <div class="icon mikrophone"></div>
+                <div class="icon volume-icon">
+                    <div class="volume-icon_after" style="display: none;"></div>
+                </div>
+                <div class="ranage2">
+                    <div class="range-track t"></div>
+                    <input type="range" id="range-duration" value="100" min="0" max="100" class="range vol">
+                </div>
+                <div class="icon full"></div>
+            </div>
+            <!--  -->
+        </div>
+    </div>
+    <div class="mobile-player">
+        <div class="mobile-title">
+            <img src="https://cdn.icon-icons.com/icons2/1334/PNG/512/musicnotequaver_87184.png" class="mobile-image">
+            <div class="mobile-info">
+                <p class="mobile-name">Name Song</p>
+                <p class="mobile-artist">Artist</p>
+            </div>
+        </div>
+        <div class="mobile-start-btn"></div>
+    </div>
+    <div class="menu-phone">
+        <div class="men home-men" style="opacity: 100%;">
+            <img src="./img/White icon home.png" class="icon-men">
+            <p class="white-men">Home</p>
+        </div>
+        <div class="men search-men" style="opacity: 70%;">
+            <img src="./img/icon searches gray.png" class="icon-men">
+            <p class="white-men">Search</p>
+        </div>
+        <div class="men library-men" style="opacity: 70%;">
+            <img src="https://static.thenounproject.com/png/4018146-200.png" class="icon-men inv"
+                style="transform: scale(1.1)">
+            <p class="white-men">Library</p>
+        </div>
+        <div class="men" style="opacity: 70%;" class="download-men">
+            <div class="icon-men dowun"></div>
+            <p class="white-men">Download</p>
+        </div>
+    </div>
+    <div class="player-mobile">
+        <div class="mobile-container">
+            <div class="player-mobile-top">
+                <div class="kar"></div>
+                <p class="name-playlist-mob">song</p>
+                <div class="three-pop"></div>
+            </div>
+            <img src="" class="beautiful-image">
+            <div class="player-na-mobile">
+                <!--  -->
+                <div class="na-top">
+                    <div class="na-block-info">
+                        <p class="na-title">TITLE</p>
+                        <p class="na-artist">ARTIST</p>
+                    </div>
+                    <div class="na-2-icon">
+                        <div class="download-mobile"></div>
+                        <div class="liked-mobile"></div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="vse">
+                    <div class="range-mobile-update">
+                        <label id="mobile-label">
+                            <span class="mobile-update"></span>
+                            <input type="range" class="range-mobile" value="0" min="0" max="100">
+                        </label>
+                        <div class="bottom-mob">
+                            <p id="left-mob"></p>
+                            <p id="right-mob"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="play-stop">
+                    <div class="icon btn-random mob-rand"></div>
+                    <div class="icon back-end bick"></div>
+                    <div class="play-controller control-mobile"></div>
+                    <div class="icon forward forw"></div>
+                    <div class="icon loop loop2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="lyric-block" style="display: none;">
+            <div class="top-text-lyrix">
+                <p style="font-weight: 700;" id="top-textic">Lyric</p>
+                <div class="n-lyric">
+                    <i class="bx bx-list-plus" style="transform: scale(1.5);"></i>
+                </div>
+            </div>
+            <div class="text-song"></div>
+        </div>
+    </div>
+    <div class="preloader">
+        <img src="./img/Spotify icon.png" class="image-preloader">
+    </div>
+    <video class="bodyt" autoplay>
+        <source src="./img/Logo Spotify Animada.mp4" type="video/mp4">
+    </video>
+    <!-- audio -->
+    <audio src=""></audio>
+    <!-- script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script acync src="https://cdn.rawgit.com/briangonzalez/rgbaster.js/b2fb235b/rgbaster.min.js"></script>
+    <script async src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/download.js"></script>
+    <!-- <script src="soundloaders.js"></script> -->
+    <script async src="./js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Registration</title>
+    <link rel="icon" href="./img/Spotify icon.png">
+    <link href="https://fonts.cdnfonts.com/css/circular-std" rel="stylesheet">
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            background-color: white;
+            background-image: none;
+        }
+
+        @media only screen and (max-width: 450px) {
+            .labelt {
+                display: block;
+                margin: 0 auto 20px;
+                width: 405px;
+            }
+
+            .sign {
+                width: 405px;
+            }
+
+            .or {
+                width: 405px;
+            }
+
+            .sign-btn {
+                width: 405px;
+            }
+        }
+
+        @media only screen and (max-width: 410px) {
+            .labelt {
+                display: block;
+                margin: 0 auto 20px;
+                width: 355px;
+            }
+
+            .google {
+                width: 355px;
+                padding: 0 40px;
+            }
+
+            .sign {
+                width: 355px;
+            }
+
+            .or {
+                width: 355px;
+            }
+
+            .sign-btn {
+                width: 355px;
+            }
+        }
+
+        @media only screen and (max-width: 355px) {
+            .labelt {
+                display: block;
+                margin: 0 auto 20px;
+                width: 100%;
+            }
+
+            .google {
+                width: 100%;
+                padding: 0 40px;
+            }
+
+            .sign {
+                width: 100%;
+            }
+
+            .or {
+                width: 100%;
+            }
+
+            .sign-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="./index.html">
+        <img src="./img/Dark icon spotify.png" class="spotify-registor">
+    </a>
+    <hr id="hr">
+    <h4 style="font-weight: 900; text-align: center;">Чтобы продолжить, войдите в Spotify.</h2>
+        <button class="google" onclick="onSignIn()" title="Функция не работает *-*">
+            <img src="./img/843776_google_icon.png" alt="" class="image-google">
+            <p class="text-go">ВОЙДИТЕ ЧЕРЕЗ GOOGLE</p>
+        </button>
+        <div class="or">
+            <hr style="border: 1px solid rgba(0, 0, 0, 0.15); height: 0; width: 40%;">
+            <h5 style="font-weight: 900; text-align: center;">ИЛИ</h5>
+            <hr style="border: 1px solid rgba(0, 0, 0, 0.15); height: 0; width: 40%;">
+        </div>
+        <label class="labelt" for="name_inp">
+            <p style="font-weight: 800;">Ваше имя</p>
+            <input type="text" class="inp_rega" id="name_inp" name="name_inp" maxlength="16"
+                placeholder="Укажите свое имя!">
+        </label>
+        <label class="labelt" for="pass_inp">
+            <p style="font-weight: 800;">Пароль</p>
+            <input type="text" class="inp_rega" id="pass_inp" name="pass_inp" maxlength="16" placeholder="Пароль">
+        </label>
+        <div class="sign">
+            <label style="display: flex; align-items: center; cursor: pointer;">
+                <input type="checkbox" style="width: 20px; height: 20px; margin-right: 10px; cursor: pointer;">
+                <p style="font-weight: 800;font-size: 14px;">Запомнить меня</p>
+            </label>
+            <button class="login-btn" onclick="login()">ВОЙТИ</button>
+        </div>
+        <hr style="border: 1px solid rgba(0, 0, 0, 0.15); height: 0; width: 94%; max-width: 425px; margin: 30px auto;">
+        <p style="font-weight: 800; text-align: center;">Нет аккаунта ?</p>
+        <button class="sign-btn" onclick="sign()">РЕГИСТРАЦИЯ В SPOTIFY</button>
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <script>
+            let doc = document
+            let accounts = []
+            let not_active_accounts = []
+            let login_btn = doc.querySelector('.login-btn')
+            let i;
+            let myAccounts = {}
+            let sign_btn = doc.querySelector('.sign-btn')
+            if (JSON.parse(localStorage.getItem('My Accounts')) != null) {
+                accounts = JSON.parse(localStorage.getItem('My Accounts')).active
+                not_active_accounts = JSON.parse(localStorage.getItem('My Accounts')).not_active
+            } else {
+                accounts = []
+                not_active_accounts = []
+            }
+            function sign() {
+                accounts = []
+                let inp_name = doc.querySelector('#name_inp').value
+                let inp_pass = doc.querySelector('#pass_inp').value
+                if (inp_name.trim() != '' && inp_pass.trim() != '') {
+                    sign_btn.classList.remove('rad')
+                    if (not_active_accounts.length > 0) {
+                        i = 1
+                        for (let item of not_active_accounts) {
+                            if (item.nam == inp_name) {
+                                i = 0
+                                alert('Такой пользователь уже существует !')
+                            }
+                        }
+                    } else {
+                        i = 1
+                    }
+                    if (i == 1) {
+                        append(accounts)
+                        append(not_active_accounts)
+                        myAccounts.active = accounts
+                        myAccounts.not_active = not_active_accounts
+                        localStorage.setItem('My Accounts', JSON.stringify(myAccounts))
+                        setTimeout(() => {
+                            location.href = 'index.html'
+                        }, 100)
+                    }
+                } else {
+                    sign_btn.classList.add('rad')
+                }
+            }
+            function login() {
+                accounts = []
+                let inp_name = doc.querySelector('#name_inp').value
+                let inp_pass = doc.querySelector('#pass_inp').value
+                if (inp_name.trim() != '' && inp_pass.trim() != '') {
+                    login_btn.classList.remove('rad')
+                    if (not_active_accounts.length > 0) {
+                        for (let item of not_active_accounts) {
+                            if (item.nam == inp_name && item.pass == inp_pass) {
+                                accounts.unshift(item)
+                                myAccounts.active = accounts
+                                myAccounts.not_active = not_active_accounts
+                                localStorage.setItem('My Accounts', JSON.stringify(myAccounts))
+                                setTimeout(() => {
+                                    location.href = 'index.html'
+                                }, 100)
+                            }
+                        }
+                    } else {
+                        alert('Такого аккаунта не существует!')
+                    }
+                } else {
+                    login_btn.classList.add('rad')
+                }
+            }
+            function append(arr) {
+                let inp_name = doc.querySelector('#name_inp').value
+                let inp_pass = doc.querySelector('#pass_inp').value
+                arr.unshift({
+                    nam: inp_name,
+                    pass: inp_pass,
+                    image: './img/3669480_account_circle_ic_icon.png',
+                    playlist: [],
+                })
+            }
+            function onSignIn() {
+                // Запрашиваем авторизацию у Google
+                const url = 'https://accounts.google.com/o/oauth2/auth';
+                const params = {
+                    response_type: 'token',
+                    client_id: '746584844552-hj3fki1r235mrrb5gqre9eavum9kqmi8.apps.googleusercontent.com',
+                    redirect_uri: 'http://localhost:8000',
+                    scope: 'profile email',
+                };
+                const queryString = Object.keys(params)
+                    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+                    .join('&');
+                const authUrl = `${url}?${queryString}`;
+                window.open(authUrl);
+                // Ждем, пока пользователь войдет в свой аккаунт и разрешит доступ
+                $(window).on('message', (event) => {
+                    alert('df')
+                    const accessToken = event.originalEvent.data.access_token;
+                    // Получаем информацию о пользователе
+                    const userInfoUrl = 'https://www.googleapis.com/oauth2/v1/userinfo';
+                    $.ajax({
+                        url: userInfoUrl,
+                        headers: {
+                            Authorization: `Bearer ${accessToken}`,
+                        },
+                        success: (data) => {
+                            console.log(`Имя пользователя: ${data.name}`);
+                            console.log(`Email пользователя: ${data.email}`);
+                        },
+                        error: (xhr, status, error) => {
+                            console.error(error);
+                        },
+                    });
+                });
+            }
+        </script>
+</body>
+
+</html>

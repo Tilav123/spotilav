@@ -1,0 +1,28 @@
+.content{
+    border: none;
+}
+.right-button{
+    display: none;
+}
+.let-friends-texta{
+    display: none;
+}
+.friends-block{
+    display: none;
+}
+.let-friends-text{
+    display: none;
+}
+.as-right-text{
+    display: none;
+}
+.friend_dop{
+    display: none;
+}
+.aside-right{
+    width: 66px;
+}
+.right-cross {
+    background-image: url(../img/icon.png);
+    background-size: 90%;
+}
